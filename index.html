@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cérebro e Memória - Aventura Interativa</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🧠 Cérebro e Memória 🧠</h1>
+            <p>Uma aventura interativa para descobrir como funciona o nosso cérebro!</p>
+        </header>
+
+        <main class="main-content">
+            <div class="brain-section">
+                <h2>Clique nas partes do cérebro para explorar!</h2>
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <button class="btn btn-audio" onclick="playAudio('intro')">
+                        🔊 Ouvir Introdução
+                    </button>
+                </div>
+                
+                <div class="navigation-buttons">
+                    <a href="medalhas.html" class="btn btn-secondary">🏆 Minhas Medalhas</a>
+                    <a href="contato.html" class="btn btn-secondary">📞 Contato</a>
+                </div>
+                
+                <div class="brain-container">
+                    <img src="img/cerebro_principal_pt.png" alt="Ilustração do Cérebro Humano" class="brain-image">
+                    
+                    <!-- Hotspots clicáveis em formato circular menor com nomes -->
+                    <div class="brain-hotspot brain-hotspot-hemisferios" id="hotspot-hemisferios" onclick="goToPage('hemisferios')" 
+                         style="top: 35%; left: 40%; width: 80px; height: 80px; border-radius: 50%;" 
+                         title="Hemisférios Cerebrais">
+                        <span class="hotspot-label">Hemisférios</span>
+                    </div>
+                    
+                    <div class="brain-hotspot brain-hotspot-cortex" id="hotspot-cortex" onclick="goToPage('cortex')" 
+                         style="top: 25%; left: 65%; width: 70px; height: 70px; border-radius: 50%;" 
+                         title="Córtex Pré-frontal">
+                        <span class="hotspot-label">Córtex</span>
+                    </div>
+                    
+                    <div class="brain-hotspot brain-hotspot-hipocampo" id="hotspot-hipocampo" onclick="goToPage('hipocampo')" 
+                         style="top: 50%; left: 55%; width: 60px; height: 60px; border-radius: 50%;" 
+                         title="Hipocampo">
+                        <span class="hotspot-label">Hipocampo</span>
+                    </div>
+                    
+                    <div class="brain-hotspot brain-hotspot-cerebelo" id="hotspot-cerebelo" onclick="goToPage('cerebelo')" 
+                         style="top: 70%; left: 70%; width: 65px; height: 65px; border-radius: 50%;" 
+                         title="Cerebelo">
+                        <span class="hotspot-label">Cerebelo</span>
+                    </div>
+                    
+                    <div class="brain-hotspot brain-hotspot-tronco" id="hotspot-tronco" onclick="goToPage('tronco')" 
+                         style="top: 75%; left: 45%; width: 60px; height: 60px; border-radius: 50%;" 
+                         title="Tronco Encefálico">
+                        <span class="hotspot-label">Tronco</span>
+                    </div>
+                </div>
+                <p class="brain-description">Cada parte do cérebro tem uma função especial! Clique em uma parte para aprender mais sobre ela e jogar atividades divertidas.</p>
+            </div>
+
+            <section class="info-section">
+                <h2>Bem-vindos à Aventura do Cérebro! 🎉</h2>
+                <p>Olá, pequenos exploradores! Vocês estão prestes a embarcar em uma aventura incrível pelo cérebro humano. O cérebro é como um super computador que controla tudo o que fazemos: pensar, sentir, lembrar, mover o corpo e muito mais!</p>
+                <p>Nesta jornada, vocês vão descobrir:</p>
+                <ul>
+                    <li>🧠 Como o cérebro nos ajuda a lembrar das coisas</li>
+                    <li>🎯 Qual parte do cérebro controla nossos movimentos</li>
+                    <li>🏠 Onde ficam guardadas nossas memórias</li>
+                    <li>🎮 Como treinar o cérebro com jogos divertidos</li>
+                    <li>🌟 Por que o cérebro é tão especial e importante</li>
+                </ul>
+                <p>Cliquem nas partes coloridas do cérebro acima para começar a exploração. Cada parte tem uma história especial para contar!</p>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/scorm.js"></script>
+
+    <!-- Áudio elements -->
+    <audio id="audioIntro" preload="auto">
+        <source src="audio/intro.wav" type="audio/wav">
+        Seu navegador não suporta áudio.
+    </audio>
+</body>

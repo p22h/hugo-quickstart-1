@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="SCORM_CEREBRO_MEMORIA_2025" version="1.0"
+          xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+          xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                              http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+    <lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd">
+      <general>
+        <identifier>
+          <catalog>URI</catalog>
+          <entry>SCORM_CEREBRO_MEMORIA_2025</entry>
+        </identifier>
+        <title>
+          <langstring xml:lang="pt-BR">Cérebro e Memória - Aventura Interativa</langstring>
+        </title>
+        <description>
+          <langstring xml:lang="pt-BR">Um conteúdo SCORM interativo sobre o cérebro e a memória para crianças de 10 a 12 anos. Inclui explicações educativas sobre as partes do cérebro e atividades lúdicas como jogo da memória, sequência de cores, caça-palavras e quizzes.</langstring>
+        </description>
+        <keyword>
+          <langstring xml:lang="pt-BR">cérebro, memória, neurociência, educação infantil, anatomia, SCORM, interativo</langstring>
+        </keyword>
+        <language>pt-BR</language>
+      </general>
+      <lifecycle>
+        <version>
+          <langstring xml:lang="pt-BR">1.0</langstring>
+        </version>
+        <status>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">Final</langstring>
+          </value>
+        </status>
+        <contribute>
+          <role>
+            <source>
+              <langstring xml:lang="x-none">LOMv1.0</langstring>
+            </source>
+            <value>
+              <langstring xml:lang="x-none">Author</langstring>
+            </value>
+          </role>
+          <entity>Manus AI</entity>
+          <date>
+            <datetime>2025-01-23</datetime>
+          </date>
+        </contribute>
+      </lifecycle>
+      <technical>
+        <format>text/html</format>
+        <size>5242880</size>
+        <location>index.html</location>
+        <requirement>
+          <type>
+            <source>
+              <langstring xml:lang="x-none">LOMv1.0</langstring>
+            </source>
+            <value>
+              <langstring xml:lang="x-none">Browser</langstring>
+            </value>
+          </type>
+          <name>
+            <source>
+              <langstring xml:lang="x-none">LOMv1.0</langstring>
+            </source>
+            <value>
+              <langstring xml:lang="x-none">Any</langstring>
+            </value>
+          </name>
+          <minimumversion>HTML5</minimumversion>
+        </requirement>
+      </technical>
+      <educational>
+        <interactivitytype>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">Active</langstring>
+          </value>
+        </interactivitytype>
+        <learningresourcetype>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">Exercise</langstring>
+          </value>
+        </learningresourcetype>
+        <interactivitylevel>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">High</langstring>
+          </value>
+        </interactivitylevel>
+        <intendedenduserrole>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">Learner</langstring>
+          </value>
+        </intendedenduserrole>
+        <context>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">School</langstring>
+          </value>
+        </context>
+        <typicalagerange>
+          <langstring xml:lang="pt-BR">10-12 anos</langstring>
+        </typicalagerange>
+        <difficulty>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">Medium</langstring>
+          </value>
+        </difficulty>
+        <typicallearningtime>
+          <datetime>PT45M</datetime>
+        </typicallearningtime>
+        <description>
+          <langstring xml:lang="pt-BR">Conteúdo educativo interativo sobre neurociência básica, adequado para crianças do ensino fundamental.</langstring>
+        </description>
+        <language>pt-BR</language>
+      </educational>
+    </lom>
+  </metadata>
+
+  <organizations default="CEREBRO_ORG">
+    <organization identifier="CEREBRO_ORG">
+      <title>Cérebro e Memória - Organização</title>
+      
+      <!-- Item principal -->
+      <item identifier="ITEM_CEREBRO_PRINCIPAL" identifierref="RES_INDEX">
+        <title>Cérebro e Memória - Página Principal</title>
+        <adlcp:prerequisites type="aicc_script"></adlcp:prerequisites>
+        <adlcp:maxtimeallowed>PT60M</adlcp:maxtimeallowed>
+        <adlcp:timelimitaction>continue,no message</adlcp:timelimitaction>
+        <adlcp:datafromlms></adlcp:datafromlms>
+        <adlcp:masteryscore>60</adlcp:masteryscore>
+        
+        <!-- Sub-itens das partes do cérebro -->
+        <item identifier="ITEM_HEMISFERIOS" identifierref="RES_HEMISFERIOS">
+          <title>Cérebro (Hemisférios)</title>
+          <adlcp:prerequisites type="aicc_script">ITEM_CEREBRO_PRINCIPAL</adlcp:prerequisites>
+        </item>
+        
+        <item identifier="ITEM_CORTEX" identifierref="RES_CORTEX">
+          <title>Córtex pré-frontal</title>
+          <adlcp:prerequisites type="aicc_script">ITEM_CEREBRO_PRINCIPAL</adlcp:prerequisites>
+        </item>
+        
+        <item identifier="ITEM_HIPOCAMPO" identifierref="RES_HIPOCAMPO">
+          <title>Hipocampo</title>
+          <adlcp:prerequisites type="aicc_script">ITEM_CEREBRO_PRINCIPAL</adlcp:prerequisites>
+        </item>
+        
+        <item identifier="ITEM_CEREBELO" identifierref="RES_CEREBELO">
+          <title>Cerebelo</title>
+          <adlcp:prerequisites type="aicc_script">ITEM_CEREBRO_PRINCIPAL</adlcp:prerequisites>
+        </item>
+        
+        <item identifier="ITEM_TRONCO" identifierref="RES_TRONCO">
+          <title>Tronco encefálico</title>
+          <adlcp:prerequisites type="aicc_script">ITEM_CEREBRO_PRINCIPAL</adlcp:prerequisites>
+        </item>
+        
+        <!-- Sub-itens das atividades -->
+        <item identifier="ITEM_MEMORIA" identifierref="RES_MEMORIA">
+          <title>Jogo da Memória</title>
+          <adlcp:prerequisites type="aicc_script">ITEM_HEMISFERIOS</adlcp:prerequisites>
+        </item>
+        
+        <item identifier="ITEM_SEQUENCIA" identifierref="RES_SEQUENCIA">
+          <title>Sequência de Cores</title>
+          <adlcp:prerequisites type="aicc_script">ITEM_CORTEX</adlcp:prerequisites>
+        </item>
+        
+        <item identifier="ITEM_CACA_PALAVRAS" identifierref="RES_CACA_PALAVRAS">
+          <title>Caça-palavras</title>
+          <adlcp:prerequisites type="aicc_script">ITEM_HIPOCAMPO</adlcp:prerequisites>
+        </item>
+        
+        <item identifier="ITEM_QUIZ1" identifierref="RES_QUIZ1">
+          <title>Quiz do Cerebelo</title>
+          <adlcp:prerequisites type="aicc_script">ITEM_CEREBELO</adlcp:prerequisites>
+        </item>
+        
+        <item identifier="ITEM_QUIZ2" identifierref="RES_QUIZ2">
+          <title>Quiz do Tronco Encefálico</title>
+          <adlcp:prerequisites type="aicc_script">ITEM_TRONCO</adlcp:prerequisites>
+        </item>
+      </item>
+    </organization>
+  </organizations>
+
+  <resources>
+    <!-- Recurso principal -->
+    <resource identifier="RES_INDEX" type="webcontent" adlcp:scormtype="sco" href="index.html">
+      <file href="index.html"/>
+      <file href="css/styles.css"/>
+      <file href="js/main.js"/>
+      <file href="js/scorm.js"/>
+      <file href="img/cerebro_principal.png"/>
+    </resource>
+    
+    <!-- Recursos das partes do cérebro -->
+    <resource identifier="RES_HEMISFERIOS" type="webcontent" adlcp:scormtype="sco" href="partes/hemisferios.html">
+      <file href="partes/hemisferios.html"/>
+      <file href="css/styles.css"/>
+      <file href="js/main.js"/>
+      <file href="js/scorm.js"/>
+      <file href="img/hemisferios.png"/>
+    </resource>
+    
+    <resource identifier="RES_CORTEX" type="webcontent" adlcp:scormtype="sco" href="partes/cortex.html">
+      <file href="partes/cortex.html"/>
+      <file href="css/styles.css"/>
+      <file href="js/main.js"/>
+      <file href="js/scorm.js"/>
+      <file href="img/cortex.png"/>
+    </resource>
+    
+    <resource identifier="RES_HIPOCAMPO" type="webcontent" adlcp:scormtype="sco" href="partes/hipocampo.html">
+      <file href="partes/hipocampo.html"/>
+      <file href="css/styles.css"/>
+      <file href="js/main.js"/>
+      <file href="js/scorm.js"/>
+      <file href="img/hipocampo.png"/>
+    </resource>
+    
+    <resource identifier="RES_CEREBELO" type="webcontent" adlcp:scormtype="sco" href="partes/cerebelo.html">
+      <file href="partes/cerebelo.html"/>
+      <file href="css/styles.css"/>
+      <file href="js/main.js"/>
+      <file href="js/scorm.js"/>
+      <file href="img/cerebelo.png"/>
+    </resource>
+    
+    <resource identifier="RES_TRONCO" type="webcontent" adlcp:scormtype="sco" href="partes/tronco.html">
+      <file href="partes/tronco.html"/>
+      <file href="css/styles.css"/>
+      <file href="js/main.js"/>
+      <file href="js/scorm.js"/>
+      <file href="img/tronco.png"/>
+    </resource>
+    
+    <!-- Recursos das atividades -->
+    <resource identifier="RES_MEMORIA" type="webcontent" adlcp:scormtype="sco" href="atividades/memoria1.html">
+      <file href="atividades/memoria1.html"/>
+      <file href="css/styles.css"/>
+      <file href="js/main.js"/>
+      <file href="js/scorm.js"/>
+      <file href="img/jogo_memoria.png"/>
+    </resource>
+    
+    <resource identifier="RES_SEQUENCIA" type="webcontent" adlcp:scormtype="sco" href="atividades/sequencia.html">
+      <file href="atividades/sequencia.html"/>
+      <file href="css/styles.css"/>
+      <file href="js/main.js"/>
+      <file href="js/scorm.js"/>
+      <file href="img/sequencia_cores.png"/>
+    </resource>
+    
+    <resource identifier="RES_CACA_PALAVRAS" type="webcontent" adlcp:scormtype="sco" href="atividades/caca_palavras.html">
+      <file href="atividades/caca_palavras.html"/>
+      <file href="css/styles.css"/>
+      <file href="js/main.js"/>
+      <file href="js/scorm.js"/>
+      <file href="img/caca_palavras.png"/>
+    </resource>
+    
+    <resource identifier="RES_QUIZ1" type="webcontent" adlcp:scormtype="sco" href="atividades/quiz1.html">
+      <file href="atividades/quiz1.html"/>
+      <file href="css/styles.css"/>
+      <file href="js/main.js"/>
+      <file href="js/scorm.js"/>
+      <file href="img/quiz.png"/>
+    </resource>
+    
+    <resource identifier="RES_QUIZ2" type="webcontent" adlcp:scormtype="sco" href="atividades/quiz2.html">
+      <file href="atividades/quiz2.html"/>
+      <file href="css/styles.css"/>
+      <file href="js/main.js"/>
+      <file href="js/scorm.js"/>
+      <file href="img/quiz.png"/>
+    </resource>
+    
+    <!-- Recursos de imagem -->
+    <resource identifier="RES_IMG_CEREBRO" type="webcontent" href="img/cerebro_principal.png">
+      <file href="img/cerebro_principal.png"/>
+    </resource>
+    
+    <resource identifier="RES_IMG_HEMISFERIOS" type="webcontent" href="img/hemisferios.png">
+      <file href="img/hemisferios.png"/>
+    </resource>
+    
+    <resource identifier="RES_IMG_CORTEX" type="webcontent" href="img/cortex.png">
+      <file href="img/cortex.png"/>
+    </resource>
+    
+    <resource identifier="RES_IMG_HIPOCAMPO" type="webcontent" href="img/hipocampo.png">
+      <file href="img/hipocampo.png"/>
+    </resource>
+    
+    <resource identifier="RES_IMG_CEREBELO" type="webcontent" href="img/cerebelo.png">
+      <file href="img/cerebelo.png"/>
+    </resource>
+    
+    <resource identifier="RES_IMG_TRONCO" type="webcontent" href="img/tronco.png">
+      <file href="img/tronco.png"/>
+    </resource>
+    
+    <resource identifier="RES_IMG_ATIVIDADES" type="webcontent" href="img/">
+      <file href="img/jogo_memoria.png"/>
+      <file href="img/sequencia_cores.png"/>
+      <file href="img/caca_palavras.png"/>
+      <file href="img/quiz.png"/>
+    </resource>
+  </resources>
+</manifest>
+

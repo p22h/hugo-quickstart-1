@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato e Créditos - Cérebro e Memória</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .credits-container {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin: 30px auto;
+            max-width: 800px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .institution-logo {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .institution-name {
+            font-size: 2.5rem;
+            color: #FF6B6B;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .department {
+            font-size: 1.3rem;
+            color: #4ECDC4;
+            margin-bottom: 30px;
+        }
+        
+        .team-section {
+            background: linear-gradient(135deg, #FFE5B4, #FFCCCB);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .team-title {
+            font-size: 2rem;
+            color: #FF6B6B;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .member-icon {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #4ECDC4, #45B7D1);
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .member-info h3 {
+            color: #333;
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+        
+        .member-role {
+            color: #666;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+        
+        .supervisor-section {
+            background: linear-gradient(135deg, #E6E6FA, #FFCCCB);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .supervisor-member {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .supervisor-icon {
+            font-size: 4rem;
+            background: linear-gradient(45deg, #96CEB4, #FFEAA7);
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin: 0 auto 20px;
+        }
+        
+        .discipline-section {
+            background: linear-gradient(135deg, #FFCCCB, #FFE5B4);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .discipline-title {
+            font-size: 2.2rem;
+            color: #FF6B6B;
+            margin-bottom: 15px;
+        }
+        
+        .discipline-description {
+            font-size: 1.2rem;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .tools-section {
+            background: linear-gradient(135deg, #E6E6FA, #FFE5B4);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .tool-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .tool-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .tool-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .tool-description {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #4ECDC4, #45B7D1);
+            color: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .contact-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .back-button {
+            text-align: center;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📞 Contato e Créditos 📞</h1>
+            <p>Conheça a equipe por trás deste projeto!</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Instituição -->
+            <div class="credits-container">
+                <div class="institution-logo">
+                    <div class="institution-name">🎓 UNESP</div>
+                    <div class="department">Universidade Estadual Paulista<br>Campus Rio Claro</div>
+                </div>
+
+                <!-- Disciplina -->
+                <div class="discipline-section">
+                    <h2 class="discipline-title">🧠 Neurociência, Educação e Tecnologias</h2>
+                    <p class="discipline-description">
+                        Este projeto educativo foi desenvolvido como parte da disciplina de Neurociência, Educação e Tecnologias, 
+                        com o objetivo de criar recursos interativos que facilitem o aprendizado sobre o funcionamento do cérebro 
+                        e os processos de memória para crianças.
+                    </p>
+                </div>
+
+                <!-- Equipe de Desenvolvimento -->
+                <div class="team-section">
+                    <h2 class="team-title">👨‍🎓 Equipe de Desenvolvimento</h2>
+                    
+                    <div class="team-member">
+                        <div class="member-icon">🎓</div>
+                        <div class="member-info">
+                            <h3>Paulo Henrique Novaes</h3>
+                            <p class="member-role">Aluno de Doutorado</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-icon">🎓</div>
+                        <div class="member-info">
+                            <h3>Edson Vieira da Rocha Filho</h3>
+                            <p class="member-role">Aluno de Doutorado</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supervisão -->
+                <div class="supervisor-section">
+                    <h2 class="team-title">👩‍🏫 Supervisão Acadêmica</h2>
+                    
+                    <div class="supervisor-member">
+                        <div class="supervisor-icon">👩‍🏫</div>
+                        <h3>Prof. Dra. Cynthia Yukiko Hiraga</h3>
+                        <p class="member-role">Professora Orientadora</p>
+                    </div>
+                </div>
+
+                <!-- Ferramentas Utilizadas -->
+                <div class="tools-section">
+                    <h2 class="team-title">🛠️ Ferramentas e Tecnologias</h2>
+                    <p style="text-align: center; margin-bottom: 20px; color: #666;">
+                        Este projeto foi desenvolvido utilizando tecnologias modernas e ferramentas educacionais:
+                    </p>
+                    
+                    <div class="tools-grid">
+                        <div class="tool-item">
+                            <div class="tool-icon">🌐</div>
+                            <div class="tool-name">HTML5 & CSS3</div>
+                            <div class="tool-description">Estrutura e design responsivo</div>
+                        </div>
+                        
+                        <div class="tool-item">
+                            <div class="tool-icon">⚡</div>
+                            <div class="tool-name">JavaScript</div>
+                            <div class="tool-description">Interatividade e jogos</div>
+                        </div>
+                        
+                        <div class="tool-item">
+                            <div class="tool-icon">📚</div>
+                            <div class="tool-name">SCORM 1.2</div>
+                            <div class="tool-description">Compatibilidade com LMS</div>
+                        </div>
+                        
+                        <div class="tool-item">
+                            <div class="tool-icon">🎨</div>
+                            <div class="tool-name">Design Infantil</div>
+                            <div class="tool-description">Interface lúdica e atrativa</div>
+                        </div>
+                        
+                        <div class="tool-item">
+                            <div class="tool-icon">🔊</div>
+                            <div class="tool-name">Áudio Educativo</div>
+                            <div class="tool-description">Narração e acessibilidade</div>
+                        </div>
+                        
+                        <div class="tool-item">
+                            <div class="tool-icon">🎮</div>
+                            <div class="tool-name">Gamificação</div>
+                            <div class="tool-description">Aprendizado através de jogos</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informações de Contato -->
+                <div class="contact-info">
+                    <h2 class="contact-title">📧 Informações de Contato</h2>
+                    <div class="contact-details">
+                        <p><strong>Instituição:</strong> UNESP - Universidade Estadual Paulista</p>
+                        <p><strong>Campus:</strong> Rio Claro - SP</p>
+                        <p><strong>Disciplina:</strong> Neurociência, Educação e Tecnologias</p>
+                        <p><strong>Ano:</strong> 2025</p>
+                    </div>
+                </div>
+
+                <!-- Agradecimentos -->
+                <div style="background: linear-gradient(135deg, #96CEB4, #FFEAA7); border-radius: 20px; padding: 30px; margin: 30px 0; text-align: center;">
+                    <h2 style="color: #333; margin-bottom: 20px;">🙏 Agradecimentos</h2>
+                    <p style="font-size: 1.1rem; color: #333; line-height: 1.6;">
+                        Agradecemos a todos que contribuíram para o desenvolvimento deste projeto educativo. 
+                        Esperamos que este recurso seja útil para educadores e estudantes interessados em 
+                        compreender melhor o fascinante mundo da neurociência e da memória.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Botão de volta -->
+            <div class="back-button">
+                <a href="index.html" class="btn btn-secondary">🏠 Voltar ao Início</a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts principais -->
+    <script src="js/main.js"></script>
+    <script src="js/scorm.js"></script>
+</body>
+</html>
+

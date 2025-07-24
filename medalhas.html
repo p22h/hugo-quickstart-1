@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medalhas Conquistadas - Cérebro e Memória</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .medals-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        
+        .medals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .medal-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .medal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .medal-card.earned {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .medal-card.locked {
+            background: linear-gradient(135deg, #bdc3c7 0%, #95a5a6 100%);
+            opacity: 0.6;
+        }
+        
+        .medal-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .medal-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .medal-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        
+        .medal-score {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+        
+        .medal-date {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+        
+        .progress-section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .progress-bar {
+            background: #f0f0f0;
+            border-radius: 10px;
+            height: 20px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-item {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .celebration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        
+        .reset-button {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin: 10px;
+        }
+        
+        .reset-button:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🏆 Medalhas Conquistadas 🏆</h1>
+            <p>Suas conquistas na jornada pelo cérebro!</p>
+        </header>
+
+        <div class="medals-container">
+            <!-- Seção de Progresso Geral -->
+            <div class="progress-section">
+                <h2>📊 Seu Progresso</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalMedals">0</span>
+                        <span class="stat-label">Medalhas</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalActivities">0</span>
+                        <span class="stat-label">Atividades</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalScore">0</span>
+                        <span class="stat-label">Pontos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="completionRate">0%</span>
+                        <span class="stat-label">Conclusão</span>
+                    </div>
+                </div>
+                
+                <h3>Progresso das Medalhas</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="medalProgress">0%</div>
+                </div>
+            </div>
+
+            <!-- Grid de Medalhas -->
+            <div class="medals-grid" id="medalsGrid">
+                <!-- Medalhas serão geradas pelo JavaScript -->
+            </div>
+
+            <!-- Controles -->
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="index.html" class="btn btn-primary">🏠 Voltar ao Início</a>
+                <button onclick="resetProgress()" class="reset-button">🔄 Resetar Progresso</button>
+                <button onclick="celebrateAchievements()" class="btn btn-secondary">🎉 Celebrar</button>
+            </div>
+        </div>
+
+        <!-- Área de celebração -->
+        <div id="celebration" class="celebration"></div>
+    </div>
+
+    <script>
+        // Definição das medalhas disponíveis
+        const availableMedals = [
+            {
+                id: 'hemisferios',
+                icon: '🧠',
+                title: 'Explorador dos Hemisférios',
+                description: 'Completou o jogo da memória dos hemisférios cerebrais',
+                requirement: 'Acerte 50% ou mais no jogo da memória',
+                area: 'hemisferios'
+            },
+            {
+                id: 'cortex',
+                icon: '🧠',
+                title: 'Mestre do Córtex',
+                description: 'Dominou a sequência de cores do córtex pré-frontal',
+                requirement: 'Chegue ao nível 5 ou mais na sequência de cores',
+                area: 'cortex'
+            },
+            {
+                id: 'hipocampo',
+                icon: '🏺',
+                title: 'Guardião da Memória',
+                description: 'Encontrou todas as palavras do hipocampo',
+                requirement: 'Encontre 50% ou mais das palavras no caça-palavras',
+                area: 'hipocampo'
+            },
+            {
+                id: 'cerebelo',
+                icon: '⚖️',
+                title: 'Equilibrista do Cerebelo',
+                description: 'Demonstrou conhecimento sobre o cerebelo',
+                requirement: 'Acerte 50% ou mais no quiz do cerebelo',
+                area: 'cerebelo'
+            },
+            {
+                id: 'tronco',
+                icon: '🌉',
+                title: 'Protetor do Tronco',
+                description: 'Completou a atividade de arrastar e soltar do tronco encefálico',
+                requirement: 'Complete a atividade de arrastar e soltar do tronco encefálico',
+                area: 'tronco'
+            },
+            {
+                id: 'explorador',
+                icon: '🗺️',
+                title: 'Explorador Completo',
+                description: 'Visitou todas as partes do cérebro',
+                requirement: 'Visite todas as 5 partes do cérebro',
+                area: 'explorador'
+            },
+            {
+                id: 'neurocientista',
+                icon: '🔬',
+                title: 'Jovem Neurocientista',
+                description: 'Conquistou todas as medalhas específicas',
+                requirement: 'Conquiste todas as 5 medalhas das partes do cérebro',
+                area: 'neurocientista'
+            }
+        ];
+
+        // Inicializar página
+        function initMedalsPage() {
+            console.log('Inicializando página de medalhas...');
+            
+            loadMedals();
+            updateStats();
+            renderMedals();
+            
+            // Registrar visita
+            if (typeof trackProgress === 'function') {
+                trackProgress('medals_page', 'visited');
+            }
+        }
+
+        // Carregar medalhas do localStorage
+        function loadMedals() {
+            const medals = JSON.parse(localStorage.getItem('brainMedals') || '[]');
+            const progress = JSON.parse(localStorage.getItem('brainProgress') || '{}');
+            const visitedParts = JSON.parse(localStorage.getItem('brainVisitedParts') || '[]');
+            
+            return medals;
+        }
+
+        // Atualizar estatísticas
+        function updateStats() {
+            const medals = loadMedals();
+            const progress = JSON.parse(localStorage.getItem('brainProgress') || '{}');
+            const visitedParts = JSON.parse(localStorage.getItem('brainVisitedParts') || '[]');
+            
+            // Calcular estatísticas
+            const totalMedals = medals.length;
+            const totalActivities = Object.keys(progress).length;
+            const totalScore = Object.values(progress).reduce((sum, p) => sum + (p.score || 0), 0);
+            const completionRate = Math.round((totalMedals / availableMedals.length) * 100);
+            
+            // Atualizar elementos
+            document.getElementById('totalMedals').textContent = totalMedals;
+            document.getElementById('totalActivities').textContent = totalActivities;
+            document.getElementById('totalScore').textContent = totalScore;
+            document.getElementById('completionRate').textContent = completionRate + '%';
+            
+            // Atualizar barra de progresso
+            const progressBar = document.getElementById('medalProgress');
+            progressBar.style.width = completionRate + '%';
+            progressBar.textContent = completionRate + '%';
+        }
+
+        // Renderizar medalhas
+        function renderMedals() {
+            let medals = loadMedals();
+            const visitedParts = JSON.parse(localStorage.getItem('brainVisitedParts') || '[]');
+            
+            // Verificar e conceder medalhas automáticas
+            let updated = false;
+            
+            // Medalha de Explorador Completo
+            const requiredVisitedParts = ['hemisferios', 'cortex', 'hipocampo', 'cerebelo', 'tronco'];
+            const allPartsVisited = requiredVisitedParts.every(part => visitedParts.includes(part));
+            
+            if (allPartsVisited && !medals.find(m => m.area === 'explorador')) {
+                const medal = {
+                    area: 'explorador',
+                    nome: 'Explorador Completo',
+                    pontuacao: 100,
+                    data: new Date().toISOString()
+                };
+                medals.push(medal);
+                updated = true;
+            }
+            
+            // Medalha de Jovem Neurocientista
+            const specificMedalAreas = ['hemisferios', 'cortex', 'hipocampo', 'cerebelo', 'tronco'];
+            const specificMedalsEarned = medals.filter(m => specificMedalAreas.includes(m.area));
+            
+            if (specificMedalsEarned.length === specificMedalAreas.length && !medals.find(m => m.area === 'neurocientista')) {
+                const medal = {
+                    area: 'neurocientista',
+                    nome: 'Jovem Neurocientista',
+                    pontuacao: 100,
+                    data: new Date().toISOString()
+                };
+                medals.push(medal);
+                updated = true;
+                
+                // Mostrar modal de parabéns quando todas as medalhas são conquistadas
+                setTimeout(() => {
+                    if (typeof showAllMedalsCongratsModal === 'function') {
+                        showAllMedalsCongratsModal();
+                    }
+                }, 1000);
+            }
+            
+            if (updated) {
+                localStorage.setItem('brainMedals', JSON.stringify(medals));
+            }
+            
+            const grid = document.getElementById('medalsGrid');
+            grid.innerHTML = '';
+            
+            availableMedals.forEach(medalDef => {
+                const earnedMedal = medals.find(m => m.area === medalDef.area);
+                const isEarned = !!earnedMedal;
+                
+                const medalCard = document.createElement('div');
+                medalCard.className = `medal-card ${isEarned ? 'earned' : 'locked'}`;
+                
+                medalCard.innerHTML = `
+                    <div class="medal-icon">${medalDef.icon}</div>
+                    <div class="medal-title">${medalDef.title}</div>
+                    <div class="medal-description">${medalDef.description}</div>
+                    ${isEarned ? 
+                        `<div class="medal-score">Pontuação: ${earnedMedal.pontuacao}%</div>
+                         <div class="medal-date">Conquistada em: ${formatDate(earnedMedal.data)}</div>` :
+                        `<div class="medal-score">🔒 Bloqueada</div>
+                         <div class="medal-date">${medalDef.requirement}</div>`
+                    }
+                `;
+                
+                if (isEarned) {
+                    medalCard.addEventListener('click', () => {
+                        celebrateMedal(medalDef);
+                    });
+                    medalCard.style.cursor = 'pointer';
+                }
+                
+                grid.appendChild(medalCard);
+            });
+        }
+
+        // Formatar data
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('pt-BR');
+        }
+
+        // Celebrar medalha específica
+        function celebrateMedal(medal) {
+            // Criar modal de celebração
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.8);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+            `;
+            
+            const content = document.createElement('div');
+            content.style.cssText = `
+                background: white;
+                padding: 40px;
+                border-radius: 25px;
+                text-align: center;
+                max-width: 400px;
+                margin: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            `;
+            
+            content.innerHTML = `
+                <div style="font-size: 5rem; margin-bottom: 20px;">${medal.icon}</div>
+                <h2 style="color: #4CAF50; margin-bottom: 15px;">${medal.title}</h2>
+                <p style="color: #666; margin-bottom: 20px;">${medal.description}</p>
+                <button onclick="this.parentElement.parentElement.remove()" 
+                        style="background: #4CAF50; color: white; border: none; padding: 15px 30px; border-radius: 10px; cursor: pointer; font-size: 1rem;">
+                    ✨ Incrível!
+                </button>
+            `;
+            
+            modal.appendChild(content);
+            document.body.appendChild(modal);
+            
+            // Efeito de confete
+            createConfetti();
+        }
+
+        // Celebrar todas as conquistas
+        function celebrateAchievements() {
+            const medals = loadMedals();
+            
+            if (medals.length === 0) {
+                alert('Continue jogando para conquistar medalhas!');
+                return;
+            }
+            
+            // Criar celebração especial
+            createConfetti();
+            
+            setTimeout(() => {
+                alert(`Parabéns! Você conquistou ${medals.length} medalha${medals.length > 1 ? 's' : ''}! Continue explorando o cérebro!`);
+            }, 1000);
+        }
+
+        // Criar efeito de confete
+        function createConfetti() {
+            const celebration = document.getElementById('celebration');
+            const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD', '#98FB98'];
+            
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.cssText = `
+                        background: ${colors[Math.floor(Math.random() * colors.length)]};
+                        left: ${Math.random() * 100}%;
+                        animation-delay: ${Math.random() * 3}s;
+                    `;
+                    
+                    celebration.appendChild(confetti);
+                    
+                    confetti.animate([
+                        { 
+                            transform: 'translateY(-100vh) rotate(0deg)', 
+                            opacity: 1 
+                        },
+                        { 
+                            transform: `translateY(100vh) rotate(${360 + Math.random() * 360}deg)`, 
+                            opacity: 0 
+                        }
+                    ], {
+                        duration: 3000 + Math.random() * 2000,
+                        easing: 'ease-out'
+                    }).onfinish = () => {
+                        confetti.remove();
+                    };
+                }, i * 50);
+            }
+        }
+
+        // Resetar progresso
+        function resetProgress() {
+            if (confirm('Tem certeza que deseja resetar todo o progresso? Esta ação não pode ser desfeita.')) {
+                localStorage.removeItem('brainMedals');
+                localStorage.removeItem('brainProgress');
+                localStorage.removeItem('brainVisitedParts');
+                
+                alert('Progresso resetado com sucesso!');
+                location.reload();
+            }
+        }
+
+        // Inicializar quando página carrega
+        document.addEventListener('DOMContentLoaded', function() {
+            initMedalsPage();
+        });
+
+        // Suporte a teclado
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modals = document.querySelectorAll('[style*="position: fixed"]');
+                modals.forEach(modal => {
+                    if (modal.parentElement) {
+                        modal.remove();
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Scripts principais -->
+    <script src="js/main.js"></script>
+    <script src="js/scorm.js"></script>
+</body>
+</html>
+
